@@ -25,7 +25,7 @@ Verified on 2026-11-19 with Minecraft 26.3 (DataVersion 5023), Java 25.0.5, Fabr
 The production JAR tested has SHA-256:
 
 ```text
-ca4e9472071d15d8e1973baf540ef2014aac1a2cf5a038dc7bd40773746cb86a
+c5028e853c9a65c24b9342b76b510414ab6755244c3eb4b0feed9bda399f9fad
 ```
 
 Native checks without LuckPerms passed 19 initial checks and 2 restart checks. They cover:
@@ -43,7 +43,7 @@ Native checks without LuckPerms passed 19 initial checks and 2 restart checks. T
 
 The separate LuckPerms fixture passed 20 initial checks and 2 restart checks, including its additional deny/fallback/nonoperator-grant/revocation test through the native API.
 
-The README's LuckPerms command sequence was also executed through RCON on a separate disposable loopback server using LuckPerms 5.5.85 and the same production JAR. Native LuckPerms exports confirmed group creation, all three grants, a synthetic UUID's group assignment, a per-user explicit denial, group removal, and removal of the denial. No actual player records were used. Runtime logs, exports, and user records are deliberately excluded from source control.
+The README's LuckPerms command sequence was also executed through RCON on a separate disposable loopback server using LuckPerms 5.5.85. Native LuckPerms exports confirmed group creation, all three grants, a synthetic UUID's group assignment, a per-user explicit denial, group removal, and removal of the denial. No actual player records were used. Runtime logs, exports, and user records are deliberately excluded from source control.
 
 ## Implementation evidence and limits
 
