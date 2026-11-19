@@ -10,9 +10,21 @@ LootBrush is a server-only Fabric mod for map makers and server staff. Bind the 
 
 **Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1 · Fabric API 0.165.2+26.3**
 
-## Quick start
+## Installation
 
-Install **`lootbrush-0.1.0.jar`** from [Releases](https://github.com/Sqeedys/LootBrush/releases/latest) and [Fabric API](https://modrinth.com/mod/fabric-api) in the server's `mods` folder. Use the Fabric/Java versions listed above. The source ZIP and integration-test JAR are not the installable mod. Restart the server, then run these commands as an operator or permitted staff member:
+**Download the ready-to-use JAR. You do not need Python, build commands, or a development kit to install LootBrush.** Your server needs Java 25 to run Minecraft.
+
+1. Use a **Minecraft 26.3 Fabric server** running **Java 25** and **Fabric Loader 0.20.1**.
+2. Stop the server.
+3. Download **`lootbrush-0.1.0.jar`** from the **Assets** section of [the latest release](https://github.com/Sqeedys/LootBrush/releases/latest). Choose the `.jar` file, not **Source code (zip)** or **Source code (tar.gz)**.
+4. Put that JAR in the server's **`mods`** folder. Also install **[Fabric API 0.165.2+26.3](https://modrinth.com/mod/fabric-api)** there if it is not already installed.
+5. Start the server and run **`/lootbrush`** as an operator or staff member with the [required permissions](#permissions).
+
+**Players do not need to install LootBrush on their clients.** LuckPerms is optional; see [Permissions](#permissions) if you want to grant access without giving operator status.
+
+## Your first loot wand
+
+Hold an item, such as a stick, and run:
 
 ```mcfunction
 /lootbrush set ruins minecraft:chests/simple_dungeon 40
@@ -85,15 +97,9 @@ All loaded vanilla and datapack tables appear in the list. Painting supports tab
 
 Server datapack `/reload` changes which tables are available. LootBrush reads current registries when listing, binding, editing pools, and painting; stale/missing tables cause clear refusal. `/lootbrush reload` reloads only this mod's configuration. Configuration replacement is atomic; an invalid reload keeps the active configuration.
 
-## Build and verification
+## For developers
 
-Python 3 and a JDK 25 installation are required:
-
-```shell
-python build.py --java-home <JDK-25-directory> --prepare-runtime
-```
-
-This verifies pinned dependency hashes, downloads the official 26.3 server into ignored local storage, compiles the source, and writes `build/libs/lootbrush-0.1.0.jar`. It does not start a server or accept Minecraft's EULA. Dependencies and game classes are not bundled. See [native test instructions and results](docs/TESTING.md) and [dependency notes](DEPENDENCIES.md).
+Want to modify the source? See the separate [developer build guide](docs/DEVELOPMENT.md). Building from source is optional and is not part of normal installation.
 
 ## Credits and license
 
