@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "lootbrush",
+  "version": "0.1.0",
+  "name": "LootBrush",
+  "description": "Paint real loot into empty chests and barrels with a weighted loot-table wand.",
+  "authors": [
+    "Sqeedys"
+  ],
+  "contact": {
+    "sources": "https://github.com/Sqeedys/LootBrush",
+    "homepage": "https://sqeedys.com/mods",
+    "issues": "https://github.com/Sqeedys/LootBrush/issues",
+    "youtube": "https://www.youtube.com/@Sqeedys"
+  },
+  "license": "MIT",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "dev.sqeedys.lootbrush.LootBrush"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabric-api": ">=0.165.2+26.3"
+  },
+  "suggests": {
+    "luckperms": "*"
+  },
+  "icon": "assets/lootbrush/icon.png"
+}
