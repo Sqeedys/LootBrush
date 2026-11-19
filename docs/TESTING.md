@@ -41,7 +41,9 @@ Native checks without LuckPerms passed 19 initial checks and 2 restart checks. T
 - Held-item binding/unbinding preserving unrelated custom data and names.
 - Clean shutdown/restart preserving saved pool configuration and actual chest loot.
 
-The separate LuckPerms fixture passed 20 initial checks and 2 restart checks, including its additional deny/fallback/nonoperator-grant/revocation test. LuckPerms command examples in the README were not executed by this harness; these permission semantics were exercised through its native API. Runtime logs and user records are deliberately excluded from source control.
+The separate LuckPerms fixture passed 20 initial checks and 2 restart checks, including its additional deny/fallback/nonoperator-grant/revocation test through the native API.
+
+The README's LuckPerms command sequence was also executed through RCON on a separate disposable loopback server using LuckPerms 5.5.85 and the same production JAR. Native LuckPerms exports confirmed group creation, all three grants, a synthetic UUID's group assignment, a per-user explicit denial, group removal, and removal of the denial. No actual player records were used. Runtime logs, exports, and user records are deliberately excluded from source control.
 
 ## Implementation evidence and limits
 

@@ -4,13 +4,15 @@
 
 Paint real loot into empty chests and barrels with a weighted loot-table wand.
 
+**[Download LootBrush](https://github.com/Sqeedys/LootBrush/releases/latest)** · [Commands](#commands) · [Permissions](#permissions) · [Test results](docs/TESTING.md)
+
 LootBrush is a server-only Fabric mod for map makers and server staff. Bind the item in your hand to a named pool, punch an empty container, and LootBrush rolls one table and inserts its generated items immediately. Players can open the container normally afterward. Clients do not need the mod.
 
 **Minecraft 26.3 · Java 25 · Fabric Loader 0.20.1 · Fabric API 0.165.2+26.3**
 
 ## Quick start
 
-Install the LootBrush JAR and Fabric API in the server's `mods` folder. Start the server, then run these commands as an operator or permitted staff member:
+Install **`lootbrush-0.1.0.jar`** from [Releases](https://github.com/Sqeedys/LootBrush/releases/latest) and [Fabric API](https://modrinth.com/mod/fabric-api) in the server's `mods` folder. Use the Fabric/Java versions listed above. The source ZIP and integration-test JAR are not the installable mod. Restart the server, then run these commands as an operator or permitted staff member:
 
 ```mcfunction
 /lootbrush set ruins minecraft:chests/simple_dungeon 40
@@ -50,10 +52,28 @@ Without LuckPerms, permission level 2 and above can use all commands and wands. 
 LuckPerms is optional. An explicit `true` grants a node, an explicit `false` denies it even to an operator, and an undefined node falls back to the level-2 operator default. If LuckPerms is loaded but its API or user data is unavailable, player access is denied. For example:
 
 ```mcfunction
-/lp group builders permission set lootbrush.use true
-/lp group builders permission set lootbrush.list true
-/lp group builders permission set lootbrush.configure true
+/lp creategroup lootbrush_staff
+/lp group lootbrush_staff permission set lootbrush.use true
+/lp group lootbrush_staff permission set lootbrush.list true
+/lp group lootbrush_staff permission set lootbrush.configure true
+/lp user <player-or-uuid> parent add lootbrush_staff
 ```
+
+Replace `<player-or-uuid>` with the intended player or UUID. Run the group-creation command once; console commands omit the leading `/`. To let someone use prepared wands without editing pools, omit the `lootbrush.configure` grant and have another staff member bind their item.
+
+To deny pool editing for one member while retaining their other grants:
+
+```mcfunction
+/lp user <player-or-uuid> permission set lootbrush.configure false
+```
+
+Remove that exception with `permission unset lootbrush.configure`. Remove this group's access with:
+
+```mcfunction
+/lp user <player-or-uuid> parent remove lootbrush_staff
+```
+
+Other groups, direct grants, and the operator fallback can still grant access. Removing LuckPerms entirely restores the documented operator-only default; there is no separate built-in role database.
 
 ## Preservation and supported tables
 
